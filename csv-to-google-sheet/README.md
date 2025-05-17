@@ -48,3 +48,11 @@ python src/main.py
 ## License
 
 This project is licensed under the MIT License.
+
+## Virtual Environment Activation
+
+Before running the script, ensure your virtual environment is activated. If you are using the command line, you can activate it with:
+
+```
+source .venv/Scripts/activate
+```
