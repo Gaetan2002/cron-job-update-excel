@@ -7,7 +7,7 @@ from utils import process_csv_data
 def upload_to_google_sheet(data, spreadsheet_name, worksheet_name):
     # Define the scope and credentials for Google Sheets API
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    creds = ServiceAccountCredentials.from_json_keyfile_name('C:/Users/gaeta/OneDrive/Bureau/stagecedrictaymans/cron-job-update-excel/csv-to-google-sheet/src/credentials.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('root/cron-job-update-excel/csv-to-google-sheet/src/credentials.json', scope)
     client = gspread.authorize(creds)
 
     # Create or open the spreadsheet
@@ -40,7 +40,7 @@ def main(csv_file_path, spreadsheet_name, worksheet_name):
 
 if __name__ == "__main__":
     # Example usage
-    csv_file_path = 'C:/Users/gaeta/OneDrive/Bureau/stagecedrictaymans/cron-job-update-excel/csv-to-google-sheet/src/inscriptions-2025-05-17.csv'  # Replace with your CSV file path
+    csv_file_path = '/root/cron-job-update-excel/csv-to-google-sheet/src/csv_uploads/formulaire_4.csv'  # Replace with your CSV file path
     spreadsheet_name = 'STAGE TEST'  # Replace with your desired spreadsheet name
     worksheet_name = 'f1'  # Replace with your desired worksheet name
     main(csv_file_path, spreadsheet_name, worksheet_name)
