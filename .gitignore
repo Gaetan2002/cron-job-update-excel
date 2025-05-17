@@ -1,2 +1,2 @@
 .env
-csv-to-google-sheet\src\credentials.json
+csv-to-google-sheet/src/credentials.json
