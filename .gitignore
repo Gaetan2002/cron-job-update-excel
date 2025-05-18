@@ -3,3 +3,6 @@ csv-to-google-sheet/src/credentials.json
 __pycache__/
 *.pyc
 credentials/credentials.json
+.vscode/
+*.DS_Store
+*.log
