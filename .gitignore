@@ -1,5 +1,4 @@
 .env
 csv-to-google-sheet/src/credentials.json
-csv-to-google-sheet/src/inscriptions-*.csv
 __pycache__/
 *.pyc
