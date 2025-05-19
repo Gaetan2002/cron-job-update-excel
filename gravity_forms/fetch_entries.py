@@ -50,9 +50,6 @@ def fetch_entries():
         print("Status:", response.status_code)
         # Affiche le code de statut HTTP de la réponse (utile pour le debug).
 
-        print("Response:", response.text)
-        # Affiche le contenu brut de la réponse (utile pour le debug).
-
         response.raise_for_status()
         # Lève une exception si la requête a échoué (statut HTTP >= 400).
 
