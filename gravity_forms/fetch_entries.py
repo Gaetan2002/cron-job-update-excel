@@ -4,6 +4,31 @@ import requests
 from .utils import get_gf_oauth
 # Importe la fonction get_gf_oauth du fichier utils.py pour gérer l’authentification OAuth1 à l’API Gravity Forms.
 
+FIELD_MAP = {
+    "id": "Id",
+    "date_created": "créé le",
+    "1.3": "Prénom",
+    "1.6": "Nom",
+    "25": "Année de naissance",
+    "3": "Email",
+    "7": "Téléphone",
+    "5": "Genre",
+    "4": "Stages 2025",
+    "6": "Club",
+    "8": "Grade",
+    "9": "Logement",
+    "10": "Repas",
+    "21": "Méthode de paiement",
+    "12": "Photo",
+    "20.1": "Newsletters Email",
+    "24.1": "Newsletter SMS",
+    "23": "Montant",
+}
+
+def map_entry_fields(entry):
+    # Transforme les clés Gravity Forms en noms lisibles
+    return {FIELD_MAP[k]: entry[k] for k in FIELD_MAP if k in entry}
+
 def fetch_entries():
     # Déclare la fonction principale qui va récupérer toutes les entrées du formulaire Gravity Forms.
 
@@ -90,8 +115,10 @@ def fetch_entries():
     print(f"Total récupéré (sans doublons) : {len(all_entries)}")
     # Affiche le nombre total d’entrées récupérées sans doublons.
 
-    return all_entries
-    # Retourne la liste complète des entrées.
+    # Transforme les clés Gravity Forms en noms lisibles avant de retourner
+    mapped_entries = [map_entry_fields(e) for e in all_entries]
+    return mapped_entries
+    # Retourne la liste complète des entrées avec noms de colonnes lisibles.
 
 if __name__ == "__main__":
     # Si le fichier est exécuté directement (pas importé comme module) :
@@ -99,5 +126,5 @@ if __name__ == "__main__":
     entries = fetch_entries()
     # Appelle la fonction pour récupérer toutes les entrées.
 
-    print(entries)
-    # Affiche la liste des entrées récupérées.
+    # Affiche uniquement le nombre d’entrées récupérées, pas leur contenu complet
+    print(f"{len(entries)} entrées récupérées et prêtes à être envoyées à Google Sheets.")
