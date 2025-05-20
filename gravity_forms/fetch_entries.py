@@ -1,6 +1,9 @@
 import requests
 # Importe la bibliothèque requests pour faire des requêtes HTTP.
 
+from datetime import datetime
+#Importe la classe datetime pour manipuler les dates et heures.
+
 from .utils import get_gf_oauth
 # Importe la fonction get_gf_oauth du fichier utils.py pour gérer l’authentification OAuth1 à l’API Gravity Forms.
 
@@ -114,6 +117,10 @@ def fetch_entries():
 
     print(f"Total récupéré (sans doublons) : {len(all_entries)}")
     # Affiche le nombre total d’entrées récupérées sans doublons.
+
+    # Affiche la date actuelle détaillée après la récupération des données
+    now = datetime.now()
+    print("Date d'exécution :", now.strftime("%Y-%m-%d %H:%M:%S"))
 
     # Transforme les clés Gravity Forms en noms lisibles avant de retourner
     mapped_entries = [map_entry_fields(e) for e in all_entries]

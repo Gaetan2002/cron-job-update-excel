@@ -41,7 +41,7 @@ cron-job-update-excel
 
    ```
    python -m venv .venv
-   .\.venv\Scripts\activate
+   ./venv/Sripts/activate
    ```
 
    Sous macOS/Linux :
